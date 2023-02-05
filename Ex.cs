@@ -49,7 +49,7 @@ namespace Intersys
             var finalstring = string
                 .Concat(inputChars
                 .Where(char.IsLetter))
-                .ToCharArray();
+                .ToCharArray();  
 
             Console.WriteLine(finalstring);
             for (int i = finalstring.Length - 1; i >= 0; --i)
