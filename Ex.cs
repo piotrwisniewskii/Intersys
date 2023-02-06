@@ -172,5 +172,36 @@ namespace Intersys
             }
 
         }
+
+        public static void Ex6(int a, int b)
+        {
+            string c;
+            do
+            {
+                Console.WriteLine("\nEnter the first value a");
+                a = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("\nEnter the second value b");
+                b = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("\nIf you want to raise the first argument to the power determined by the second argument write OK" +
+                    "\n If you want to raise the second argument to the power determined by first argument write CANCEL");
+
+                c = Console.ReadLine().ToUpper();
+
+
+                switch (c)
+                {
+                    case "OK":
+                        Console.WriteLine(Math.Pow(a, b));
+                        break;
+
+                    case "CANCEL":
+                        Console.WriteLine(Math.Pow(a, b));
+                        break;
+                }
+                
+            } while (c != "OK" && c != "CANCEL");
+        }
     }
 }
