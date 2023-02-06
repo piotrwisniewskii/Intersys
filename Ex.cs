@@ -132,8 +132,44 @@ namespace Intersys
             }
         }
 
-        public void Ex5()
+        public static void Ex5()
         {
+            Console.WriteLine("Please provide the number of Tests");
+            var input = double.TryParse(Console.ReadLine(), out double userNumber);
+            double T, m, n, prime;
+
+            for (int h = 0; h < userNumber; h++)
+            {
+                Console.WriteLine("\nEnter the first value m");
+                m = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("\nEnter the second value n");
+
+                n = double.Parse(Console.ReadLine());
+
+                if (m - n > 1000000)
+                {
+                    Console.WriteLine($"the values are too high {m - n} is higher than 10^5");
+                    return;
+                }
+                Console.WriteLine("\nPrime numbers between m and n are as follows:");
+
+                for (double i = m; i <= n && i >= 1; i++)
+                {
+                    prime = 1;
+
+                    for (double j = 2; j <= i / 2; ++j)
+                    {
+                        if (i % j == 0)
+                        {
+                            prime = 0;
+                            break;
+                        }
+                    }
+                    if (prime == 1)
+                        Console.Write($"{i} ");
+                }
+            }
 
         }
     }
