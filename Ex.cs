@@ -292,31 +292,29 @@ namespace Intersys
                     }
                 }
             }
-
-            int maxDigitSum = 0;
-            int maxDigitSumPos = 0;
+            int maxPairValue = 0;
+            int maxPairValueIndex = 0;
             for (int i = 0; i < arraySize; i++)
             {
-                int digitSum = 0;
+                int pairSum = 0;
                 int num = inputArray[i];
                 while (num > 0)
                 {
-                    digitSum += num % 10;
+                    pairSum += num % 10;
                     num /= 10;
                 }
-                if (digitSum > maxDigitSum)
+                if (pairSum > maxPairValue)
                 {
-                    maxDigitSum = digitSum;
-                    maxDigitSumPos = i;
+                    maxPairValue = pairSum;
+                    maxPairValueIndex = i;
                 }
-                else if (digitSum == maxDigitSum)
+                else if (pairSum == maxPairValue)
                 {
-                    maxDigitSumPos = Math.Max(maxDigitSumPos, i);
+                    maxPairValueIndex = Math.Max(maxPairValueIndex, i);
                 }
             }
 
-            Console.WriteLine($"The answer is {maxDigitSumPos}");
-
+            Console.WriteLine($"Index of digit with maximal sum value is {maxPairValueIndex}");
         }
     }
 }
