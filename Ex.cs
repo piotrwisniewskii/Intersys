@@ -200,13 +200,72 @@ namespace Intersys
                         Console.WriteLine(Math.Pow(a, b));
                         break;
                 }
-                
+
             } while (c != "OK" && c != "CANCEL");
         }
 
         public static void Ex7()
         {
+            Console.WriteLine("Please provide array size");
+            var userInput = int.TryParse(Console.ReadLine(), out int arraySize);
 
+            int[] inputArray = new int[arraySize];
+            Console.WriteLine("Please provide numbers for the given array");
+
+            for (int i = 0; i < arraySize; i++)
+            {
+                var input = int.TryParse(Console.ReadLine(), out int numberInput);
+                inputArray[i] = numberInput;
+            }
+            Ex7AgeFixer(inputArray);
+        }
+        public static void Ex7AgeFixer(int[] inputArray)
+        {
+            var result = string.Join(",", inputArray.Where(x => x >= 18 && x <= 60));
+            Console.WriteLine(result == "" ? "NA" : result);
+
+        }
+
+        public static void Ex8()
+        {
+            Console.WriteLine("Please provide array size");
+            var userInput = int.TryParse(Console.ReadLine(), out int arraySize);
+
+            int[] inputArray = new int[arraySize];
+            Console.WriteLine("Please provide numbers for the given array");
+
+            for (int i = 0; i < arraySize; i++)
+            {
+                var input = int.TryParse(Console.ReadLine(), out int numberInput);
+                inputArray[i] = numberInput;
+            }
+
+
+            int[] timesCounted = new int[10];
+
+            foreach (int num in inputArray)
+            {
+                int n = num;
+                while (n > 0)
+                {
+                    int digit = n % 10;
+                    timesCounted[digit]++;
+                    n /= 10;
+                }
+            }
+
+            int maxCount = timesCounted.Max();
+            int maxDigit = 0;
+            for (int i = 9; i >= 0; i--)
+            {
+                if (timesCounted[i] == maxCount)
+                {
+                    maxDigit = i;
+                    break;
+                }
+            }
+            Console.WriteLine(maxDigit);
         }
     }
 }
+
