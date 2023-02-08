@@ -11,5 +11,6 @@ int b = 0;
 //Ex.Ex6(a,b);
 //Ex.Ex7();
 Ex.Ex8();
+//Ex.Ex9();
 
 

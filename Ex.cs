@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Numerics;
 using System.Reflection.Metadata;
@@ -264,7 +265,58 @@ namespace Intersys
                     break;
                 }
             }
-            Console.WriteLine(maxDigit);
+            Console.WriteLine($"Result is {maxDigit}");
+        }
+
+        public static void Ex9()
+        {
+            Console.WriteLine("Please provide array size");
+            var userInput = int.TryParse(Console.ReadLine(), out int arraySize);
+
+            int[] inputArray = new int[arraySize];
+            Console.WriteLine("Please provide numbers for the given array");
+
+            for (int i = 0; i < arraySize; i++)
+            {
+                var input = Console.ReadLine();
+                if (int.TryParse(input, out int numberInput))
+                {
+                    if (numberInput < 0)
+                    {
+                        Console.WriteLine("Please provide positive integer during next session");
+                        break;
+                    }
+                    else
+                    {
+                        inputArray[i] = numberInput;
+                    }
+                }
+            }
+
+            int maxDigitSum = 0;
+            int maxDigitSumPos = 0;
+            for (int i = 0; i < arraySize; i++)
+            {
+                int digitSum = 0;
+                int num = inputArray[i];
+                while (num > 0)
+                {
+                    digitSum += num % 10;
+                    num /= 10;
+                }
+                if (digitSum > maxDigitSum)
+                {
+                    maxDigitSum = digitSum;
+                    maxDigitSumPos = i;
+                }
+                else if (digitSum == maxDigitSum)
+                {
+                    maxDigitSumPos = Math.Max(maxDigitSumPos, i);
+                }
+            }
+
+            Console.WriteLine($"The answer is {maxDigitSumPos}");
+
         }
     }
 }
