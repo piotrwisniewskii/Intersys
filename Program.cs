@@ -8,6 +8,7 @@ int b = 0;
 //Ex.Ex3();
 //Ex.Ex4();
 //Ex.Ex5();
-Ex.Ex6(a,b);
+//Ex.Ex6(a,b);
+Ex.Ex7
 
 

@@ -203,5 +203,10 @@ namespace Intersys
                 
             } while (c != "OK" && c != "CANCEL");
         }
+
+        public static void Ex7()
+        {
+
+        }
     }
 }
